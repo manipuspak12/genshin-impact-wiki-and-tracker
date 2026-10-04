@@ -37,3 +37,43 @@
     223px 131px,
     293px 173px;
 }
+
+.roster-hero {
+  background-color: #090a10;
+  background-image:
+    radial-gradient(1px 1px at 28px 36px, rgb(255 255 255 / 48%) 98%, transparent),
+    radial-gradient(1px 1px at 116px 82px, rgb(225 214 177 / 42%) 98%, transparent),
+    linear-gradient(112deg, #090a10 0%, #11121b 58%, #191a27 100%);
+  background-size:
+    173px 127px,
+    239px 181px,
+    cover;
+}
+
+.hero-enter,
+.hero-preview {
+  animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-preview {
+  animation-delay: 120ms;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-preview {
+    animation: none;
+  }
+}

@@ -64,5 +64,5 @@ export function fetchEntityTypes(signal?: AbortSignal): Promise<EntityType[]> {
 
 /** Portrait/card image for a character. Returns a webp. */
 export function characterCard(id: string): string {
-  return `${BASE}/characters/${id}/card`
+  return `${BASE}/characters/${id.toLowerCase()}/card`
 }

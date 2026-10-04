@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { CharacterPage } from './pages/CharacterPage'
 import { RosterPage } from './pages/RosterPage'
 
@@ -19,6 +19,8 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+
   return (
     <div className="min-h-screen">
       <header className="site-header sticky top-0 z-10 border-b border-white/10 text-white">
@@ -41,7 +43,7 @@ export default function App() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className={pathname === '/' ? 'w-full' : 'mx-auto max-w-6xl px-4 py-8'}>
         <Routes>
           <Route path="/" element={<RosterPage />} />
           <Route path="/characters/:id" element={<CharacterPage />} />
