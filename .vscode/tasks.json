@@ -6,13 +6,19 @@
       "type": "npm",
       "script": "dev",
       "isBackground": true,
+      // F5 blocks until endsPattern matches, so this must survive the ANSI
+      // colour codes Vite writes. A naive "Local:" anchor does NOT work: the
+      // real bytes are "Local\x1b[22m:" and "http://127.0.0.1:\x1b[1m5173",
+      // i.e. escape sequences sit both before the colon and inside the URL.
+      // "VITE" and "http://" are contiguous in both coloured and plain output,
+      // and \S+ tolerates the escapes embedded in the port.
       "problemMatcher": {
         "owner": "vite",
         "pattern": { "regexp": "^$" },
         "background": {
           "activeOnStart": true,
-          "beginsPattern": { "regexp": ".*" },
-          "endsPattern": { "regexp": "Local:.*(http|https)://\\S+" }
+          "beginsPattern": { "regexp": "VITE" },
+          "endsPattern": { "regexp": "http://\\S+" }
         }
       },
       "presentation": { "reveal": "always", "panel": "dedicated" },
@@ -30,13 +36,16 @@
       "type": "npm",
       "script": "preview",
       "isBackground": true,
+      // `vite preview` prints no "VITE" version banner (unlike `vite dev`), so
+      // anchor the start on the npm script echo instead. Same ANSI-safe
+      // endsPattern as Dev server.
       "problemMatcher": {
         "owner": "vite",
         "pattern": { "regexp": "^$" },
         "background": {
           "activeOnStart": true,
-          "beginsPattern": { "regexp": ".*" },
-          "endsPattern": { "regexp": "Local:.*(http|https)://\\S+" }
+          "beginsPattern": { "regexp": "vite" },
+          "endsPattern": { "regexp": "http://\\S+" }
         }
       },
       "presentation": { "reveal": "always", "panel": "dedicated" }

@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Brave is the only Chromium browser on this machine (no Chrome, and the
+      // Edge install is a stripped EdgeCore build), so js-debug drives it
+      // through runtimeExecutable. It speaks CDP, so debugging is identical.
+      //
+      // A separate userDataDir is REQUIRED: Brave refuses to open a profile
+      // that is already locked by a running window, and reusing your day-to-day
+      // profile would also risk Shields interfering with localhost requests.
+      "name": "Debug site (Brave)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:5173",
+      "runtimeExecutable": "${env:LOCALAPPDATA}\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+      "userDataDir": "${workspaceFolder}\\.vscode\\.brave-debug-profile",
+      "webRoot": "${workspaceFolder}/src",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      // Skip Brave's welcome/import screens so the tab opens straight on the app.
+      "runtimeArgs": [
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--disable-features=Translate"
+      ],
+      // Start `npm run dev`, wait until Vite actually prints its Local: URL,
+      // then open the browser. Nothing to start by hand.
+      "preLaunchTask": "Dev server"
+    },
+    {
+      // Debug without relaunching the browser: attach to a Brave/Chrome window
+      // you already have open on the dev server.
+      "name": "Attach to running browser",
+      "type": "pwa-chrome",
+      "request": "attach",
+      "url": "http://127.0.0.1:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "preLaunchTask": "Dev server"
+    }
+  ],
+  "compounds": []
+}
