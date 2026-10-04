@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? '/genshin-impact-wiki-and-tracker/' : '/',
   plugins: [react(), tailwindcss()],
   server: {
     // Pin to IPv4 loopback. Vite otherwise binds 127.0.0.1 while `localhost`
