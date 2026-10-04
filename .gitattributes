@@ -1,0 +1,29 @@
+# Normalize line endings: commit LF, check out native per-platform
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Force LF for shell scripts and config (must run correctly on Linux CI too)
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Treat these as binary — never touch line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Lockfiles are generated — resolve merge conflicts manually
+package-lock.json merge=binary linguist-generated=true
+pnpm-lock.yaml merge=binary linguist-generated=true
+yarn.lock merge=binary linguist-generated=true
