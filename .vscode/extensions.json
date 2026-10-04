@@ -1,0 +1,34 @@
+{
+  // Recommended extensions for a React + TypeScript + Vite website.
+  // VS Code shows these as "Workspace Recommended Extensions".
+  "recommendations": [
+    // --- Linting & formatting ---
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+
+    // --- Framework & build tooling ---
+    "antfu.vite",
+    "dsznajder.es7-react-js-snippets",
+
+    // --- Styling ---
+    "bradlc.vscode-tailwindcss",
+
+    // --- Language intelligence ---
+    "usernamehw.errorlens",
+    "yoavbls.pretty-ts-errors",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+
+    // --- Testing ---
+    "vitest.explorer",
+
+    // --- DX & workflow ---
+    "mikestead.dotenv",
+    "github.vscode-github-actions",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "github.copilot",
+    "github.copilot-chat"
+  ]
+}
