@@ -7,8 +7,14 @@ progress. Built with Tailwind CSS 4, ESLint 10, and Prettier.
 
 ```bash
 npm install     # install dependencies
-npm run dev     # start dev server at http://localhost:5173
+npm run dev     # start dev server at http://127.0.0.1:5173
 ```
+
+> **Use `127.0.0.1`, not `localhost`.** `localhost` resolves to both `127.0.0.1` and
+> `::1`, but the dev server binds IPv4 only. IPv6-preferring clients — notably VS Code's
+> webview renderer, which powers Simple Browser and Browse Lite — try `::1` first, get
+> `ECONNREFUSED`, and show a blank page. Normal browsers fall back to IPv4 silently,
+> which is why the problem only shows up inside VS Code.
 
 ## Scripts
 
