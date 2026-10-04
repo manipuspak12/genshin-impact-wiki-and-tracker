@@ -8,10 +8,8 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
       to={to}
       end
       className={({ isActive }) =>
-        `rounded-lg px-3 py-1.5 text-sm font-medium transition ${
-          isActive
-            ? 'bg-accent-500/15 text-accent-700 dark:bg-accent-500/20 dark:text-accent-300'
-            : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800'
+        `rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+          isActive ? 'text-amber-200' : 'text-[#c4c5d8] hover:text-white'
         }`
       }
     >
@@ -23,12 +21,20 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 export default function App() {
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
-        <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
-          <span className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
-            Genshin <span className="text-accent-500">Wiki</span>
-          </span>
-          <div className="flex items-center gap-1">
+      <header className="site-header sticky top-0 z-10 border-b border-white/10 text-white">
+        <nav
+          aria-label="Main"
+          className="mx-auto flex min-h-19 max-w-370 flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-3 sm:px-8"
+        >
+          <NavLink to="/" end className="flex items-center gap-3 text-xl font-extrabold">
+            <span aria-hidden="true" className="text-2xl leading-none text-amber-300">
+              ✦
+            </span>
+            <span className="text-[#e7e4f3]">
+              Genshin <span className="text-[#c9c5df]">Track</span>
+            </span>
+          </NavLink>
+          <div className="ml-auto flex items-center gap-2 sm:gap-6">
             <NavItem to="/">Characters</NavItem>
             <NavItem to="/tracker">Tracker</NavItem>
           </div>

@@ -25,3 +25,15 @@
     @apply bg-white text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200;
   }
 }
+
+.site-header {
+  background-color: #191b2d;
+  background-image:
+    radial-gradient(1px 1px at 19px 23px, rgb(255 255 255 / 42%) 98%, transparent),
+    radial-gradient(1px 1px at 73px 58px, rgb(232 220 177 / 48%) 98%, transparent),
+    radial-gradient(1px 1px at 122px 16px, rgb(255 255 255 / 32%) 98%, transparent);
+  background-size:
+    167px 97px,
+    223px 131px,
+    293px 173px;
+}
