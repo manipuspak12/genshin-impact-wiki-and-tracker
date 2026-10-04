@@ -46,6 +46,14 @@
   // ---- Live Server / dev server ----
   "typescript.tsserver.maxTsServerMemory": 4096,
 
+  // ---- Preview server ----
+  // Use the "Preview production build" task (`npm run preview`), not Live Server.
+  // Live Server is unusable here: ritwickdey.liveserver@5.7.10 ships a truncated
+  // live-server dependency (no lib/, fails with MODULE_NOT_FOUND), and the npm
+  // `live-server` package only resolves to 1.2.2 here, whose --spa mode serves
+  // index.html for asset requests (Content-Type: text/html for a .css file).
+  // `npm run preview` serves dist/ with correct MIME types and SPA fallback.
+
   // ---- Spell checker ----
   "cSpell.enable": true,
   "cSpell.language": "en",
