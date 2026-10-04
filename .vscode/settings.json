@@ -1,0 +1,86 @@
+{
+  // ---- Formatting ----
+  // Prettier owns formatting; ESLint owns lint fixes only (see eslint section).
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    // "explicitOnly" makes ESLint apply only its non-formatting fixes, so it
+    // never fights Prettier over whitespace.
+    "source.fixAll.eslint": "explicitOnly"
+  },
+
+  // ---- ESLint ----
+  "eslint.useFlatConfig": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.rules.customizations": [
+    {
+      "rule": "source.fixAll.eslint",
+      "severity": "error",
+      "kind": "enabled",
+      "fixable": true
+    }
+  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // ---- TypeScript ----
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // ---- Files ----
+  "files.associations": {
+    "*.css": "css",
+    "*.md": "markdown"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // ---- Editor behaviour ----
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.indentation": true,
+
+  // ---- Emmet (needed for Tailwind class hints in JSX) ----
+  "editor.suggest.emmetShowSuggestionsAsDescriptions": true,
+
+  // ---- Live Server / dev server ----
+  "typescript.tsserver.maxTsServerMemory": 4096,
+
+  // ---- Spell checker ----
+  "cSpell.enable": true,
+  "cSpell.language": "en",
+  "cSpell.words": [
+    "genshin",
+    "raiden",
+    "hutao",
+    "zhongli",
+    "kazuha",
+    "ayaka",
+    "kokomi",
+    "fischl",
+    "tighnari",
+    "mona",
+    "ganyu",
+    "eula",
+    "noelle",
+    "venti",
+    "diluc",
+    "kleese",
+    "albedo",
+    "chongyun",
+    "xiyan",
+    "kazuha",
+    "ambernath",
+    "furina",
+    "neuvillette",
+    "wriothesley",
+    "navia",
+    "sethos",
+    "chiori",
+    "arlecchino",
+    "clorinde",
+    "mavuika",
+    "citlali",
+    "lan yan"
+  ]
+}

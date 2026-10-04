@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+/* Light/dark follow the OS setting. Remove `custom` to force light, or add
+   `@custom-variant dark (&:where(.dark, .dark *));` to opt into a class toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Genshin-inspired accent palette, exposed as bg-accent / text-accent etc. */
+  --color-accent-50: oklch(0.97 0.02 275);
+  --color-accent-400: oklch(0.72 0.15 280);
+  --color-accent-500: oklch(0.65 0.19 285);
+  --color-accent-600: oklch(0.55 0.2 288);
+
+  --font-sans: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200;
+  }
+}
